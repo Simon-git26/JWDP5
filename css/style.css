@@ -27,3 +27,13 @@
 .content {
     margin-top: 100px;
 }
+
+.stretched-link {
+    text-decoration: none;
+    color: black;
+}
+
+.stretched-link:hover {
+    text-decoration: none;
+    color: black;
+}
