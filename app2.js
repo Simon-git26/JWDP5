@@ -3,46 +3,40 @@
 
 const fetchUse = fetch("http://localhost:3000/api/teddies");
 
-fetchUse.then((response) => {
 
-    const data = response.json();
 
-    data.then((produits) => {
-        console.log(produits);
-    });
-    }).catch((erreur) => console.log(erreur)); 
+async function template() {
+    const json = await fetchUse;
+    const data = await json.json();
+    console.log(data);
 
 
 
+    const container = document.getElementById('products');
+    let template = document.querySelector('template');
 
+    for (const result of data) {
+        let clone = document.importNode(template.content, true);
+        let div = clone.querySelectorAll("div");
+        div[0].textContent = result.name;
+        
 
-/* fetch("http://localhost:3000/api/teddies")
-fetchUse.then((response) => console.log(response)).catch((erreur) => console.log(erreur));
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-    
-const reponseData = response.json(); */
+        /* div[3].textContent = result.description; */ 
+        let img = clone.querySelectorAll("img");
+        console.log(img);
 
+        if (img[0]) {
+            img[0].src = result.imageUrl;
+        } else {
+            console.log('image non trouvé');
+        }
+        
 
+        container.appendChild(clone);
 
-
-/* const fetchUse = async function (request) {
-    let response = await fetch('http://localhost:3000/api/teddies');
-    if (response.ok) {
-        let data = await response.json();
-        return data;
-    } else {
-        console.error('retour du serveur : ', response.status);
+        
+        
     }
 }
 
-let searchValue;
-
-
-const card = document.getElementsByClassName('card');
-card.addEventListener('card', updateValue);
-
-
-function updateValue(e) {
-    searchValue = e.target.value;
-} */
+template();
