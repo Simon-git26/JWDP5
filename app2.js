@@ -18,24 +18,20 @@ async function template() {
     for (const result of data) {
         let clone = document.importNode(template.content, true);
         let div = clone.querySelectorAll("div");
-        div[0].textContent = result.name;
         
-
-        /* div[3].textContent = result.description; */ 
         let img = clone.querySelectorAll("img");
-        console.log(img);
-
-        if (img[0]) {
-            img[0].src = result.imageUrl;
-        } else {
-            console.log('image non trouvé');
-        }
+        img[0].src = result.imageUrl;
         
+        div[3].textContent = result.name;
 
+        div[4].textContent = result.description;
+
+        div[5].textContent = result.price;
+        
+        
+        
         container.appendChild(clone);
-
-        
-        
+   
     }
 }
 
