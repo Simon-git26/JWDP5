@@ -17,11 +17,11 @@ async function template() {
 
     for (const result of data) {
         let clone = document.importNode(template.content, true);
-        let div = clone.querySelectorAll("div");
         
         let img = clone.querySelectorAll("img");
         img[0].src = result.imageUrl;
         
+        let div = clone.querySelectorAll("div");
         div[3].textContent = result.name;
 
         div[4].textContent = result.description;
@@ -31,7 +31,6 @@ async function template() {
         
         
         container.appendChild(clone);
-   
     }
 }
 

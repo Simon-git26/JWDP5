@@ -1,6 +1,7 @@
 
 .navbar {
     margin-top: 30px;
+    margin-bottom: 70px;
     background-color:rgb(243,233,241);
     border-radius: 15px;
     align-items: baseline;
@@ -22,11 +23,6 @@
     border-radius: 5px;
 }
 
-
-
-.content {
-    margin-top: 100px;
-}
 
 .stretched-link {
     text-decoration: none;
