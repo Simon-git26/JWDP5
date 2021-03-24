@@ -24,13 +24,14 @@ async function template() {
         
         let div = clone.querySelectorAll("div");
 
-        div[3].h3 = result.name;
+        div[3].textContent = result.name;
         console.log(div[3]);
 
-        div[4].p = result.description;
+        div[4].textContent = result.description;
         console.log(div[4]);
+        
 
-        div[5].button = result.price;
+        div[5].textContent = result.price;
         console.log(div[5]);
         
         
