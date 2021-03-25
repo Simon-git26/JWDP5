@@ -20,19 +20,19 @@ async function template() {
         
         let img = clone.querySelectorAll("img");
         img[0].src = result.imageUrl;
-        console.log(img[0]);
+
+        clone.querySelector("a").href="produits.html?id=" + result._id;
+        console.log(result._id);
+
+        
         
         let div = clone.querySelectorAll("div");
 
         div[3].textContent = result.name;
-        console.log(div[3]);
-
+    
         div[4].textContent = result.description;
-        console.log(div[4]);
-        
-
+    
         div[5].textContent = result.price;
-        console.log(div[5]);
         
         
         container.appendChild(clone);
