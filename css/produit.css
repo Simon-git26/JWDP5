@@ -31,19 +31,41 @@ header {
 
 .column {
     flex-direction: inherit;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 
-.color {
-    background-color: tan;
-    height: 30px;
-    width: 30px;
+.supp-padd {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-body {
+    background-color: #455361;
+    color: white;
+}
+
+.card-body a {
+    color: white;
+    text-decoration: none;
+
+}
+
+/* Style Couleur */
+.colors {
+    display: flex;
+    justify-content: space-around;
 }
 
 
 
 
 
+
+
+
+/* Footer */
 footer {
     margin-top: 50px;
     height: 60px;

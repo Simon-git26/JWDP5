@@ -22,7 +22,16 @@ function template(teddy) {
     div[3].textContent = teddy.name;
     div[4].textContent = teddy.description;    
     div[5].textContent = teddy.price;
-    div[6].textContent = teddy.colors;
+
+
+    div[7].textContent = teddy.colors[0];
+    div[8].textContent = teddy.colors[1]
+    div[9].textContent = teddy.colors[2]
+    div[10].textContent = teddy.colors[3]
+    console.log(div[7]);
+    console.log(div[8]);
+    console.log(div[9]);
+    console.log(div[10]);
 
 
    
