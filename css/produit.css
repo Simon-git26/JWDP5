@@ -11,9 +11,7 @@
     height: 75px;
 }
 
-.rounded {
-    border-radius: 1.25rem!important;
-}
+
 
 
 .input {
@@ -31,8 +29,16 @@ header {
 }
 
 
+.column {
+    flex-direction: inherit;
+}
 
 
+.color {
+    background-color: tan;
+    height: 30px;
+    width: 30px;
+}
 
 
 

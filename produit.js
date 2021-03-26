@@ -1,39 +1,44 @@
 
-
-const fetchUse = fetch("http://localhost:3000/api/teddies");
-
-
-
-async function template() {
-    const json = await fetchUse;
-    const data = await json.json();
-    console.log(data);
+async function findTeddy(param) {
+   const result = await fetch("http://localhost:3000/api/teddies/" + param);
+   return result.json();
+};
 
 
+function template(teddy) {
 
     const container = document.getElementById('products');
     let template = document.querySelector('template');
 
-        for (const result of data) {
-        let clone = document.importNode(template.content, true);
+
+    let clone = document.importNode(template.content, true);
         
-        let img = clone.querySelectorAll("img");
-        img[0].src = result.imageUrl;
+    let img = clone.querySelectorAll("img");
+    img[0].src = teddy.imageUrl;
 
     
+    let div = clone.querySelectorAll("div");
 
-        
-        let div = clone.querySelectorAll("div");
+    div[3].textContent = teddy.name;
+    div[4].textContent = teddy.description;    
+    div[5].textContent = teddy.price;
+    div[6].textContent = teddy.colors;
 
-        div[3].textContent = result.name;
+
+   
     
-        div[4].textContent = result.description;
     
-        div[5].textContent = result.price;
-        
-        
-        container.appendChild(clone); 
-    }
+    container.appendChild(clone);
 }
 
-template();
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const id = urlParams.get('id');
+
+
+
+findTeddy(id).then(response => {
+    console.log(response);
+    template(response);
+})
