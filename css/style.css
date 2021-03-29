@@ -1,4 +1,4 @@
-body {
+.color-body {
     background-color: #455361;
 }
 
@@ -71,6 +71,8 @@ body {
     display: flex;
     justify-content: center;
     background-color: cornflowerblue;
+    color: white;
+    
 }
 
 
@@ -96,4 +98,58 @@ footer a:hover {
     padding: 6px;
     font-weight: bold;
     text-decoration: none;
+}
+
+
+
+
+
+
+/* PAGE PRODUITS */
+
+.marge-top {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.column {
+    flex-direction: inherit;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+.supp-padd {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.style {
+    background-color: #455361;
+    color: white;
+}
+
+.card-body a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.pos {
+    margin: auto;
+}
+
+/* Style Couleur */
+.colors {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card-colors {
+    height: 50px;
+    width: 105px;
+    border-radius: 5px;
+    color: transparent;
 }
