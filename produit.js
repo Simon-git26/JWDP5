@@ -10,12 +10,10 @@ function template(teddy) {
     const container = document.getElementById('products');
     let template = document.querySelector('template');
 
-
     let clone = document.importNode(template.content, true);
         
     let img = clone.querySelectorAll("img");
     img[0].src = teddy.imageUrl;
-
     
     let div = clone.querySelectorAll("div");
 
@@ -33,18 +31,13 @@ function template(teddy) {
     console.log(div[9]);
     console.log(div[10]);
 
-
-   
-    
     
     container.appendChild(clone);
 }
 
 
 const urlParams = new URLSearchParams(window.location.search);
-
 const id = urlParams.get('id');
-
 
 
 findTeddy(id).then(response => {
