@@ -157,3 +157,26 @@ footer a:hover {
     border-radius: 5px;
     color: transparent;
 }
+
+
+
+
+
+/* PAGE PANIER */
+
+.align {
+    margin: auto;
+}
+
+.font-b {
+    font-weight: bold;
+}
+
+.back1 {
+    background-color: #455361;
+    border-radius: 5px;
+}
+
+.back2 {
+    background-color:rgb(243,233,241);
+}
