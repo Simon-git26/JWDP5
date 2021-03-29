@@ -15,6 +15,10 @@
     align-items: baseline;
 }
 
+.navbar-expand {
+    justify-content: space-between;
+}
+
 
 .img_size {
     width: 160px;
@@ -148,8 +152,8 @@ footer a:hover {
 }
 
 .card-colors {
-    height: 50px;
-    width: 105px;
+    height: 3rem;
+    width: 6.5rem;
     border-radius: 5px;
     color: transparent;
 }
