@@ -21,7 +21,7 @@ async function template() {
         let img = clone.querySelectorAll("img");
         img[0].src = result.imageUrl;
 
-        clone.querySelector("a").href="produits.html?id=" + result._id;
+        clone.querySelector("a").href="produit.html?id=" + result._id;
         console.log(result._id);
 
         
@@ -32,7 +32,8 @@ async function template() {
     
         div[4].textContent = result.description;
     
-        div[5].textContent = result.price;
+
+        div[5].textContent = `${result.price / 100} €`;
         
         
         container.appendChild(clone);

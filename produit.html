@@ -19,11 +19,6 @@
                    <img class="img_size rounded" src="images/logo.png" alt="Site logo Oricono">
                 </a>
 
-                <div class="form-group">
-                    <form method="post" action="traitement.php">
-                        <input class="input" type="search" maxlength="20" placeholder="Rechercher un produit en vente.." />
-                    </form>
-                </div>
                 <a class="btn btn-default" href="panier.html" role="button">Mon Panier</a>
             </nav> 
             
@@ -33,33 +28,35 @@
         <main>
 
             <div class="container marge-top">
-                <div class="row"  id="products"></div>
+                <div class="row"  id="product">
+                    <div class="col card column">
+
+                        <div class="col-6 supp-padd">
+                            <img class="float-left img-fluid" />
+                        </div>
+        
+                        <div class="card-body style col-6">
+                            <div class="card-title"></div>
+                            <div class="card-text"></div>
+                            <div class="card-price position"></div>
+
+                            <div class="form-group">
+                                <input type="number" class="form-control" min="1" max="9" value="1"/> 
+                            </div>
+
+                            <div class="colors"></div>
+
+                            <div class="form-group">
+                                <a href="panier.html"><input type="submit" class="form-control btn btn-default col-8 pos" value="Ajoutez au Panier !" id="cart"/></a>
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
             
-
             
-
-            <template>
-                <div class="col card column">
-                    <div class="col-6 supp-padd">
-                        <img class="float-left img-fluid" />
-                    </div>
-    
-                    <div class="card-body style col-6">
-                        <div class="card-title"></div>
-                        <div class="card-text"></div>
-                        <div class="card-price"></div>
-                        <div class="colors">
-                            <a href="#"><div class="card-colors"></div></a>
-                            <a href="#"><div class="card-colors"></div></a>
-                            <a href="#"><div class="card-colors"></div></a>
-                            <a href="#"><div class="card-colors"></div></a>
-                        </div>
-                        <div type="button" class="btn btn-default col-8 pos">Ajoutez au Panier !</div>
-                    </div>
-                </div>
-            </template>
 
         </main>
 

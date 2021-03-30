@@ -7,41 +7,22 @@ async function findTeddy(param) {
 
 function template(teddy) {
 
-    const container = document.getElementById('products');
-    let template = document.querySelector('template');
-
-    let clone = document.importNode(template.content, true);
+    const container = document.getElementById('product');
         
-    let img = clone.querySelectorAll("img");
+    let img = container.querySelectorAll("img");
     img[0].src = teddy.imageUrl;
     
-    let div = clone.querySelectorAll("div");
+    let div = container.querySelectorAll("div");
 
     div[3].textContent = teddy.name;
-    div[4].textContent = teddy.description;    
-    div[5].textContent = teddy.price;
-
-
-    div[7].textContent = teddy.colors[0];
-    div[7].style.background = teddy.colors[0];
-
-    div[8].textContent = teddy.colors[1]
-    div[8].style.background = teddy.colors[1]
-
-    div[9].textContent = teddy.colors[2]
-    div[9].style.background = teddy.colors[2]
-
-    div[10].textContent = teddy.colors[3]
-    div[10].style.background = teddy.colors[3]
-
-
-    console.log(div[7]);
-    console.log(div[8]);
-    console.log(div[9]);
-    console.log(div[10]);
-
+    div[4].textContent = teddy.description;
+    div[5].textContent = `${teddy.price / 100} €`;
     
-    container.appendChild(clone);
+
+    teddy.colors.forEach(color => {
+        let html = `<a href="#"><div style="background-color: ${color}" class="card-colors">${color}</div></a>`;
+        container.querySelector(".colors").insertAdjacentHTML("beforeend", html);
+    })
 }
 
 
@@ -53,3 +34,12 @@ findTeddy(id).then(response => {
     console.log(response);
     template(response);
 })
+
+
+
+
+/* Mettre les infos dans local */
+
+cart.onclick = () => {
+    localStorage.setItem("article", urlParams);
+} 
