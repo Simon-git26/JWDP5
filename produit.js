@@ -47,15 +47,14 @@ cart2.onclick = () => {
 
 
 
-
 /* Mettre les infos dans local */
 
 
-/* let btnEnvoyer = document.querySelector("input");
+/* let btnEnvoyer = document.querySelector("cart2");
 console.log(btnEnvoyer);
 
-btnEnvoyer.addEventListener("click", (onClick) => {
-
+btnEnvoyer.addEventListener("click", => {
+    localStorage.setItem('article', JSON.stringify(teddyArticle));
 }); 
 
 function onClick() {
@@ -73,9 +72,4 @@ function updateBtn() {
 } */
 
 
-/* let btnAjoutPanier = document.querySelector('cart');
-console.log(btnAjoutPanier);
-
-btnAjoutPanier.addEventListener("click", () => {
-    localStorage.getItem("produit", id);
-}); */
+ 
