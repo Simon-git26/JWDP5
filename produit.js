@@ -1,4 +1,6 @@
 
+let teddyArticle = [];
+
 async function findTeddy(param) {
    const result = await fetch("http://localhost:3000/api/teddies/" + param);
    return result.json();
@@ -6,6 +8,8 @@ async function findTeddy(param) {
 
 
 function template(teddy) {
+
+    teddyArticle = teddy;
 
     const container = document.getElementById('product');
         
@@ -37,9 +41,41 @@ findTeddy(id).then(response => {
 
 
 
+cart2.onclick = () => {
+    localStorage.setItem('article', JSON.stringify(teddyArticle));
+};
+
+
+
 
 /* Mettre les infos dans local */
 
-cart.onclick = () => {
-    localStorage.setItem("article", urlParams);
-} 
+
+/* let btnEnvoyer = document.querySelector("input");
+console.log(btnEnvoyer);
+
+btnEnvoyer.addEventListener("click", (onClick) => {
+
+}); 
+
+function onClick() {
+    let ajoutPanier = document.querySelector("cart2");
+    console.log(ajoutPanier);
+} */
+
+
+/* var btn = document.querySelector('cart');
+btn.addEventListener('click', updateBtn);
+
+
+function updateBtn() {
+    localStorage.getItem("produit", _id);
+} */
+
+
+/* let btnAjoutPanier = document.querySelector('cart');
+console.log(btnAjoutPanier);
+
+btnAjoutPanier.addEventListener("click", () => {
+    localStorage.getItem("produit", id);
+}); */
