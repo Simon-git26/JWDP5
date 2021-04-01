@@ -1,11 +1,12 @@
 
+
+/* Recuperer les données sur le LocalStorage */
+
 let teddyArticleJson = localStorage.getItem('article');
 let teddyArticle = teddyArticleJson && JSON.parse(teddyArticleJson);
 
 
 console.log(teddyArticle);
-
-
 
 
 const popupConfirmation = () => {
@@ -23,8 +24,8 @@ if (teddyArticleJson) {
 
 
 
-/* Recuperer et afficher les données sur la page Web */
 
+/* Afficher les données sur la page Web */
 
 const container = document.getElementById('products');
 let template = document.querySelector('template');
@@ -35,8 +36,6 @@ for (const result of teddyArticle) {
     let img = clone.querySelectorAll("img");
     img[0].src = result.imageUrl;
     console.log(img[0]);
-
-
     
     let div = clone.querySelectorAll("div");
 
@@ -47,8 +46,5 @@ for (const result of teddyArticle) {
     div[5].textContent = `${result.price / 100} €`;
     console.log(div[5]);
     
-    
     container.appendChild(clone);
 }
-
-

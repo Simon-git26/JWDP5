@@ -37,7 +37,6 @@
                         <thead>
                             <tr>
                                 <td class="font-b">Vos Produits</td>
-                                <!--<td class="font-b">Quantité</td>-->
                                 <td class="font-b">Prix</td>
                                 <td class="font-b">Total</td>
                             </tr>
@@ -54,6 +53,59 @@
                     </table>
                 </div>
             </section>
+
+
+            <!-- FORMULAIRE POUR PASSER COMMANDE -->
+
+            <form class="container form-horizontal">
+                <div class="form-group row">
+                    <h2>Passer votre Commande</h2>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label for="prenom">Votre Prenom</label>
+                        <input type="text" name="prenom" id="prenom" class="form-control" required />
+                    </div>
+
+                    <div class="col-3">
+                        <label for="nom">Votre Nom</label>
+                        <input type="text" name="nom" id="nom" class="form-control" required />
+                    </div>
+
+                    <div class="col-6">
+                        <label for="mail">Adresse Email</label>
+                        <input type="email" name="mail" id="mail" class="form-control" required />
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-2">
+                        <label for="code">Votre Code Postal</label>
+                        <input type="text" name="code" id="code" class="form-control" required />
+                    </div>
+
+                    <div class="col-2">
+                        <label for="ville">Votre Ville</label>
+                        <input type="text" name="ville" id="ville" class="form-control" required />
+                    </div>
+                    
+                    <div class="col-3">
+                        <label for="tel">Votre N° Telephone</label>
+                        <input type="tel" name="tel" id="tel" class="form-control" required />
+                    </div>
+
+                    <div class="col-5">
+                        <label for="tel">Votre Adresse</label>
+                        <input type="tel" name="tel" id="tel" class="form-control" required />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Commander</button>
+            </form>
+
+
 
             <template>
                 <div class="col">
