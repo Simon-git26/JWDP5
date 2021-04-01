@@ -42,34 +42,15 @@ findTeddy(id).then(response => {
 
 
 cart2.onclick = () => {
-    localStorage.setItem('article', JSON.stringify(teddyArticle));
+
+    const articleStorage = localStorage.getItem('article');
+    let articles = [];
+     
+    if (articleStorage) {
+        articles = JSON.parse(articleStorage);
+    }
+
+    articles.push(teddyArticle);
+    
+    localStorage.setItem('article', JSON.stringify(articles));
 };
-
-
-
-/* Mettre les infos dans local */
-
-
-/* let btnEnvoyer = document.querySelector("cart2");
-console.log(btnEnvoyer);
-
-btnEnvoyer.addEventListener("click", => {
-    localStorage.setItem('article', JSON.stringify(teddyArticle));
-}); 
-
-function onClick() {
-    let ajoutPanier = document.querySelector("cart2");
-    console.log(ajoutPanier);
-} */
-
-
-/* var btn = document.querySelector('cart');
-btn.addEventListener('click', updateBtn);
-
-
-function updateBtn() {
-    localStorage.getItem("produit", _id);
-} */
-
-
- 
