@@ -33,19 +33,32 @@
             <section class="mt-4 p-4 align col-8 back1">
                 <div class="row p-4 back2 rounded">
                     <h2 class="font-bold">Votre Panier</h2>
-                    <table class="border-collapse w-100 " id="products">
+                    <table class="border-collapse w-100 ">
                         <thead>
                             <tr>
-                                <td class="font-b">Vos Produits</td>
-                                <td class="font-b">Quantité</td>
-                                <td class="font-b">PU</td>
-                                <td class="font-b">PT</td>
+                                <td class="font-b title">Vos Produits</td>
+                                <td class="font-b quantite">Quantité</td>
+                                <td class="font-b price">PU</td>
+                                <td class="font-b pricetot">PT</td>
                             </tr>
                         </thead>
                         <tbody class="container">
                             
                         </tbody>
                     </table>
+
+                    <template id="productrow">
+                        
+                        <tr>
+                            <td class="title"></td>
+                            <td class="quantite"></td>
+                            <td class="price"></td>
+                            <td class="pricetot"></td>
+                            <td class="totalpanier"></td>
+                        </tr>
+                        
+                    </template>
+
                 </div>
             </section>
 
@@ -102,16 +115,7 @@
 
 
 
-            <template>
-                <div class="col">
-                    <tr class="row">
-                        <td class="title"></td>
-                        <td class="Quantite"></td>
-                        <td class="price"></td>
-                        <td class="pricetot"></td>
-                    </tr>
-                </div>
-            </template>
+            
 
         </main>
 

@@ -41,40 +41,47 @@ findTeddy(id).then(response => {
 
 
 
-document.querySelector('.addToCart').addEventListener('click', () => {
+document.querySelector('.addToCart').addEventListener('click', (event) => {
 
-    const articleStorage = localStorage.getItem('article');
-    let articles = [];
-     
-    if (articleStorage) {
-        articles = JSON.parse(articleStorage);
-    }
+   /* //Fonction fenetre popUp Confirmation
+    const popupConfirmation = () => {
+        if(window.confirm(`${result.name} a bien été ajoutez au panier, Consulter le panier OK ou Revenir a l'accueil ANNULER`));
 
-    articles.push(teddyArticle);
-    
-    localStorage.setItem('article', JSON.stringify(articles));
-});
+        else {
 
+        }
+    } */
 
-
-/* document.querySelector('.addToCart').addEventListener('click', (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const target = event.target.parentElement.parentElement
     const quantite = Number(target.querySelector('input[type="number"]').value)
-    const cart = localStorage.getItem('article') ? JSON.parse(localStorage.getItem('article')) : [];
-    const existe = cart.filter((item) => item._id === id)[0];
+    
     
 
-    if (existe) {
-        let index = cart.indexOf(existe)
-        let article = cart.splice(index, 1)[0];
-        existe.quantite += quantite
-        cart.push(existe)
-    } else {
-        teddyArticle.quantite = quantite
-        cart.push(teddyArticle)
+    // recuperer le tableau article
+    const panier = localStorage.getItem('article');
+    let articles = [];
+     
+    // si le tableau existe deja on parse
+    if (panier) {
+        articles = JSON.parse(panier);        
     }
 
-    cart.push(existe);
-    localStorage.setItem('article', JSON.stringify(cart));
-}); */
+
+    
+
+    // Si il existe, on recupere l'element dans le tableau 
+    const existe = articles.find(item => item._id === id);
+
+    //Si il est existe, on additione les quantité
+    if (existe) {
+        existe.quantite = existe.quantite + quantite;
+        
+    } else { // si existe pas on rentre simplement l'article avec sa quantite selectioné
+        teddyArticle.quantite = quantite;
+        articles.push(teddyArticle);
+    }
+
+
+    localStorage.setItem('article', JSON.stringify(articles));
+});

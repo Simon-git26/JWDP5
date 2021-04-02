@@ -13,39 +13,27 @@ console.log(teddyArticle);
 
 /* Afficher les données sur la page Web */
 
-const container = document.getElementById('products');
-let template = document.querySelector('template');
+const container = document.querySelector('tbody');
+let template = document.querySelector('#productrow');
 
 for (const result of teddyArticle) {
+    
     let clone = document.importNode(template.content, true);
-    
-    let img = clone.querySelectorAll("img");
-    img[0].src = result.imageUrl;
-    console.log(img[0]);
-    
-    let div = clone.querySelectorAll("div");
 
-    div[3].textContent = result.name;
-    console.log(div[3]);
+    let td = clone.querySelectorAll("td");
 
-    div[5].textContent = `${result.price / 100} €`;
+
+    td[0].textContent = result.name;
     
+    td[1].textContent = result.quantite;
+
+    td[2].textContent = `${result.price / 100} €`;
+    
+    td[3].textContent = `${result.price * result.quantite / 100} €`;
+    console.log(td[3]);
+
+    td[4].textContent = `${result.price * result.quantite / 100} €`;
+    
+
     container.appendChild(clone);
 }
-
-
-
-/* const container = document.getElementById('products');
-let template = document.querySelector('template');
-
-for (const result of teddyArticle) {
-    let clone = document.importNode(template.content, true);
-    
-    clone.querySelector('td:nth-child(1)').textContent = result.name
-
-    clone.querySelector('td:nth-child(2)').textContent = 1
-    clone.querySelector('td:nth-child(3)').textContent = `${result.price / 100} €`;
-    clone.querySelector('td:nth-child(4)').textContent = `${result.price * result.quantite / 100} €`;
-
-    container.appendChild(clone);
-} */
