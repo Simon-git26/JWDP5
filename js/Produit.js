@@ -40,7 +40,6 @@ findTeddy(id).then(response => {
 })
 
 
-
 cart2.onclick = () => {
 
     const articleStorage = localStorage.getItem('article');
