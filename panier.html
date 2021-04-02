@@ -33,22 +33,17 @@
             <section class="mt-4 p-4 align col-8 back1">
                 <div class="row p-4 back2 rounded">
                     <h2 class="font-bold">Votre Panier</h2>
-                    <table class="border-collapse w-100">
+                    <table class="border-collapse w-100 " id="products">
                         <thead>
                             <tr>
                                 <td class="font-b">Vos Produits</td>
-                                <td class="font-b">Prix</td>
-                                <td class="font-b">Total</td>
+                                <td class="font-b">Quantité</td>
+                                <td class="font-b">PU</td>
+                                <td class="font-b">PT</td>
                             </tr>
                         </thead>
-
                         <tbody class="container">
-                            <tr class="row" id="products">
-                                <td class="title"></td>
-                                <td class="Quantite"></td>
-                                <td class="price"></td>
-                                <td></td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -109,15 +104,12 @@
 
             <template>
                 <div class="col">
-                    <div class="col">
-                        <img class="float-left img-fluid" />
-                    </div>
-
-                    <div class="col">
-                        <div class="title"></div>
-                        <div class="Quantite"></div>
-                        <div class="price"></div>
-                    </div>
+                    <tr class="row">
+                        <td class="title"></td>
+                        <td class="Quantite"></td>
+                        <td class="price"></td>
+                        <td class="pricetot"></td>
+                    </tr>
                 </div>
             </template>
 

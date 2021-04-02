@@ -40,7 +40,8 @@ findTeddy(id).then(response => {
 })
 
 
-cart2.onclick = () => {
+
+document.querySelector('.addToCart').addEventListener('click', () => {
 
     const articleStorage = localStorage.getItem('article');
     let articles = [];
@@ -52,4 +53,28 @@ cart2.onclick = () => {
     articles.push(teddyArticle);
     
     localStorage.setItem('article', JSON.stringify(articles));
-};
+});
+
+
+
+/* document.querySelector('.addToCart').addEventListener('click', (event) => {
+    event.preventDefault()
+    const target = event.target.parentElement.parentElement
+    const quantite = Number(target.querySelector('input[type="number"]').value)
+    const cart = localStorage.getItem('article') ? JSON.parse(localStorage.getItem('article')) : [];
+    const existe = cart.filter((item) => item._id === id)[0];
+    
+
+    if (existe) {
+        let index = cart.indexOf(existe)
+        let article = cart.splice(index, 1)[0];
+        existe.quantite += quantite
+        cart.push(existe)
+    } else {
+        teddyArticle.quantite = quantite
+        cart.push(teddyArticle)
+    }
+
+    cart.push(existe);
+    localStorage.setItem('article', JSON.stringify(cart));
+}); */
