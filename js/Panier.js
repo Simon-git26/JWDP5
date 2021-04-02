@@ -37,3 +37,6 @@ for (const result of teddyArticle) {
 
     container.appendChild(clone);
 }
+
+
+
