@@ -26,7 +26,6 @@ for (const result of teddyArticle) {
     td[1].textContent = result.quantite;
     td[2].textContent = `${result.price / 100} €`;
     td[3].textContent = `${result.price * result.quantite / 100} €`;
-    console.log(td[3]);
 
     container.appendChild(clone);
 }
@@ -53,7 +52,30 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     localStorage.setItem("ville", document.querySelector("#ville").value);
     localStorage.setItem("tel", document.querySelector("#tel").value);
     localStorage.setItem("adress", document.querySelector("#adress").value);
+
+    //Mettre les valeurs du Formulaire dans un objet
+    const formulaireObjet = {
+    prenom: localStorage.getItem("prenom"),
+    nom: localStorage.getItem("nom"),
+    mail: localStorage.getItem("mail"),
+    code: localStorage.getItem("code"),
+    ville: localStorage.getItem("ville"),
+    tel: localStorage.getItem("tel"),
+    adress: localStorage.getItem("adress")
+    }
+
+
+    //Mettre les valeurs Formulaire + les produits selectionnées dans un objet a envoyer vers le serveur
+    const valeurEnvoyer = {
+        teddyArticle,
+        formulaireObjet
+    }
+    console.log("valeurEnvoyer");
+    console.log(valeurEnvoyer);
+
+
+    //Envoi de l'objet valeurEnvoyer vers le serveur
+    localStorage.setItem("article,formulaire", JSON.stringify(valeurEnvoyer));
+
 })
-
-
 
