@@ -74,8 +74,11 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     console.log(valeurEnvoyer);
 
 
-    //Envoi de l'objet valeurEnvoyer vers le serveur
+    //Envoi de l'objet valeurEnvoyer vers le serveur + transformation en chaine de caractère
     localStorage.setItem("article,formulaire", JSON.stringify(valeurEnvoyer));
 
+
+    // Redirection vers la page Confirmation de Commande
+    window.location.href="confirme.html";
 })
 
