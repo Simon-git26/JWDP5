@@ -29,12 +29,6 @@
     border-radius: 1.25rem!important;
 }
 
-.input {
-    width: 250px;
-    border: 1px solid gray;
-    border-radius: 5px;
-}
-
 .btn {
     border-radius: 5px;
 }
@@ -191,7 +185,31 @@ footer a:hover {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    width: 86%;
+    width: 15%;
+}
+
+
+
+
+/* Verifier la Validiter du formulaire */
+
+.validinvalid:invalid {
+background-color: #ffddddde;
+}
+
+
+.validinvalid:valid {
+background-color: #ddffdd;
+}
+
+
+.validinvalid:required {
+border-color: #800000;
+border-width: 1px;
+}
+
+.validinvalid:required:valid {
+border-color: #008000;
 }
 
 
