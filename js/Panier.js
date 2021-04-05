@@ -15,12 +15,17 @@ console.log(teddyArticle);
 
 const container = document.querySelector('tbody');
 let template = document.querySelector('#productrow');
+let prixTotal = 0;
+
+
 
 for (const result of teddyArticle) {
     
     let clone = document.importNode(template.content, true);
     let td = clone.querySelectorAll("td");
 
+    // Prnedre le prix total d'un article et additioner le prix total de tous les articles present 
+    prixTotal = result.price * result.quantite / 100 + prixTotal;
 
     td[0].textContent = result.name;
     td[1].textContent = result.quantite;
@@ -29,6 +34,15 @@ for (const result of teddyArticle) {
 
     container.appendChild(clone);
 }
+
+let prixTotalDiv = document.querySelector(".prixtotal");
+prixTotalDiv.textContent = `${prixTotal} €`;
+
+
+//Placement de ma variable prixTotal dans le localStorage
+localStorage.setItem("prixTotal", JSON.stringify(prixTotal));
+
+
 
 
 

@@ -187,6 +187,15 @@ footer a:hover {
     margin-bottom: 40px;
 }
 
+.total {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 86%;
+}
+
+
+
 
 
 /* Page Confirmation Commande */
@@ -198,4 +207,10 @@ footer a:hover {
 
 .size {
     font-size: 1.3em;
+}
+
+.prix {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
