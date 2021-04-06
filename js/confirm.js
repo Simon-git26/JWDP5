@@ -6,6 +6,7 @@ prixTotalJSON = localStorage.getItem("prixTotal");
 let prixTotal = prixTotalJSON && JSON.parse(prixTotalJSON);
 
 
+
 //Selectionné la div coresspondante 
 let prixLocalDiv = document.querySelector(".prixlocal");
  
@@ -13,6 +14,12 @@ let prixLocalDiv = document.querySelector(".prixlocal");
 prixLocalDiv.textContent =`${prixTotal} €`;
 
 
+
+// Selectionnez la div qui affichera l'OrderId
+let orderId = document.querySelector(".orderid");
+
+// Afficher l'OrderId dans la confirmation
+orderId.textContent = localStorage.getItem("orderId");
 
 
 

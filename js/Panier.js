@@ -2,24 +2,30 @@
 
 // Recuperer les données sur le LocalStorage
 
-let product_idJson = localStorage.getItem('article');
-let product_id = product_idJson && JSON.parse(product_idJson);
+let productsJson = localStorage.getItem('article');
+let products = productsJson && JSON.parse(productsJson);
 
 
-console.log(product_id);
+console.log(products);
 
 
 
 
-// Afficher les données sur la page Web
 
+// Continuez le code si le tableaux Products existe sinon alert
+if (!products || products.length === 0) {
+    window.alert("Veuillez sélèctionnez un produit !");
+    window.location.href="index.html";
+}
+
+
+// Afficher les données sur la page Web Si les conditions du if sont remplies
 const container = document.querySelector('tbody');
 let template = document.querySelector('#productrow');
 let prixTotal = 0;
 
 
-
-for (const result of product_id) {
+for (const result of products) {
     
     let clone = document.importNode(template.content, true);
     let td = clone.querySelectorAll("td");
@@ -54,60 +60,50 @@ const btnEnvoyerFormulaire = document.querySelector("#btnenvoyer");
 
 
 //addEventListener du bouton "COMMANDER"
-btnEnvoyerFormulaire.addEventListener("click", (e) => {
+btnEnvoyerFormulaire.addEventListener("click", async (e) => {
 
     e.preventDefault();
 
-    // Selection des données du Formulaire + Placement dans localStorage
-    localStorage.setItem("firstName", document.querySelector("#prenom").value);
-    localStorage.setItem("lastName", document.querySelector("#nom").value);
-    localStorage.setItem("email", document.querySelector("#mail").value);
-    localStorage.setItem("city", document.querySelector("#ville").value);
-    localStorage.setItem("adress", document.querySelector("#adress").value);
-
     //Mettre les valeurs du Formulaire dans un objet
     const contact = {
-    firstName: localStorage.getItem("firstName"),
-    lastName: localStorage.getItem("lastName"),
-    email: localStorage.getItem("email"),
-    city: localStorage.getItem("city"),
-    adress: localStorage.getItem("adress")
+    firstName: document.querySelector("#prenom").value,
+    lastName: document.querySelector("#nom").value,
+    email: document.querySelector("#mail").value,
+    city: document.querySelector("#ville").value,
+    address: document.querySelector("#address").value
     }
 
+     // Un Tableau contenant les _id de chaque produits 
+     const idProducts = products.map( product => product._id );
 
     //Mettre les valeurs Formulaire + les produits selectionnées dans un objet a envoyer vers le serveur
     const valeurEnvoyer = {
-        product_id,
-        contact
+        products:  idProducts,
+        contact : contact
     }
     console.log("valeurEnvoyer");
     console.log(valeurEnvoyer);
 
+    
 
-    //Envoi de l'objet valeurEnvoyer vers le serveur + transformation en chaine de caractère
-    localStorage.setItem("article,formulaire", JSON.stringify(valeurEnvoyer));
+    // Methode Post pour generer une code de commande
+    const rawResponse = await fetch("http://localhost:3000/api/teddies/order", {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(valeurEnvoyer)
+    });
+    const content = await rawResponse.json();
 
+    localStorage.setItem("orderId", content.orderId);
+      
+    console.log(content);
+    console.log(valeurEnvoyer);
 
     // Redirection vers la page Confirmation de Commande
     window.location.href="confirme.html";
-
-
-    // Methode Post
-    (async () => {
-        const rawResponse = await fetch("http://localhost:3000/api/teddies", {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({valeurEnvoyer})
-        });
-        const content = await rawResponse.json();
-      
-        console.log(content);
-    })();
-    
-     console.log(objetContact);
 })
 
 

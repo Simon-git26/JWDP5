@@ -232,3 +232,10 @@ border-color: #008000;
     display: flex;
     justify-content: center;
 }
+
+
+.commande {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
