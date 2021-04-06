@@ -1,5 +1,5 @@
 
-let teddyArticle = [];
+let product_id = [];
 
 async function findTeddy(param) {
    const result = await fetch("http://localhost:3000/api/teddies/" + param);
@@ -9,7 +9,7 @@ async function findTeddy(param) {
 
 function template(teddy) {
 
-    teddyArticle = teddy;
+    product_id = teddy;
 
     const container = document.getElementById('product');
         
@@ -78,8 +78,8 @@ document.querySelector('.addToCart').addEventListener('click', (event) => {
         existe.quantite = existe.quantite + quantite;
         
     } else { // si existe pas on rentre simplement l'article avec sa quantite selectioné
-        teddyArticle.quantite = quantite;
-        articles.push(teddyArticle);
+        product_id.quantite = quantite;
+        articles.push(product_id);
     }
 
 

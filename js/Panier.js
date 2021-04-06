@@ -2,11 +2,11 @@
 
 // Recuperer les données sur le LocalStorage
 
-let teddyArticleJson = localStorage.getItem('article');
-let teddyArticle = teddyArticleJson && JSON.parse(teddyArticleJson);
+let product_idJson = localStorage.getItem('article');
+let product_id = product_idJson && JSON.parse(product_idJson);
 
 
-console.log(teddyArticle);
+console.log(product_id);
 
 
 
@@ -19,7 +19,7 @@ let prixTotal = 0;
 
 
 
-for (const result of teddyArticle) {
+for (const result of product_id) {
     
     let clone = document.importNode(template.content, true);
     let td = clone.querySelectorAll("td");
@@ -59,30 +59,26 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
     e.preventDefault();
 
     // Selection des données du Formulaire + Placement dans localStorage
-    localStorage.setItem("prenom", document.querySelector("#prenom").value);
-    localStorage.setItem("nom", document.querySelector("#nom").value);
-    localStorage.setItem("mail", document.querySelector("#mail").value);
-    localStorage.setItem("code", document.querySelector("#code").value);
-    localStorage.setItem("ville", document.querySelector("#ville").value);
-    localStorage.setItem("tel", document.querySelector("#tel").value);
+    localStorage.setItem("firstName", document.querySelector("#prenom").value);
+    localStorage.setItem("lastName", document.querySelector("#nom").value);
+    localStorage.setItem("email", document.querySelector("#mail").value);
+    localStorage.setItem("city", document.querySelector("#ville").value);
     localStorage.setItem("adress", document.querySelector("#adress").value);
 
     //Mettre les valeurs du Formulaire dans un objet
-    const formulaireObjet = {
-    prenom: localStorage.getItem("prenom"),
-    nom: localStorage.getItem("nom"),
-    mail: localStorage.getItem("mail"),
-    code: localStorage.getItem("code"),
-    ville: localStorage.getItem("ville"),
-    tel: localStorage.getItem("tel"),
+    const contact = {
+    firstName: localStorage.getItem("firstName"),
+    lastName: localStorage.getItem("lastName"),
+    email: localStorage.getItem("email"),
+    city: localStorage.getItem("city"),
     adress: localStorage.getItem("adress")
     }
 
 
     //Mettre les valeurs Formulaire + les produits selectionnées dans un objet a envoyer vers le serveur
     const valeurEnvoyer = {
-        teddyArticle,
-        formulaireObjet
+        product_id,
+        contact
     }
     console.log("valeurEnvoyer");
     console.log(valeurEnvoyer);
@@ -94,5 +90,30 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 
     // Redirection vers la page Confirmation de Commande
     window.location.href="confirme.html";
+
+
+    // Methode Post
+    (async () => {
+        const rawResponse = await fetch("http://localhost:3000/api/teddies", {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({valeurEnvoyer})
+        });
+        const content = await rawResponse.json();
+      
+        console.log(content);
+    })();
+    
+     console.log(objetContact);
 })
+
+
+
+
+
+
+
 
