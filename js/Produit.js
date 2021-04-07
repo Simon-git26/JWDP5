@@ -1,12 +1,13 @@
 
 let product_id = [];
 
+// Recuperer l'id du produits qui à été selectionné
 async function findTeddy(param) {
    const result = await fetch("http://localhost:3000/api/teddies/" + param);
    return result.json();
 };
 
-
+// Afficher les produits selectioné grace au template
 function template(teddy) {
 
     product_id = teddy;
@@ -30,6 +31,7 @@ function template(teddy) {
 }
 
 
+
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
@@ -40,35 +42,24 @@ findTeddy(id).then(response => {
 })
 
 
+// Au click sur bouton ajout panier, exécutez ce code
+function onClick(e) {
 
-document.querySelector('.addToCart').addEventListener('click', (event) => {
-
-   /* //Fonction fenetre popUp Confirmation
-    const popupConfirmation = () => {
-        if(window.confirm(`${result.name} a bien été ajoutez au panier, Consulter le panier OK ou Revenir a l'accueil ANNULER`));
-
-        else {
-
-        }
-    } */
-
-    event.preventDefault();
-    const target = event.target.parentElement.parentElement
+    e.preventDefault();
+    const target = e.target.parentElement.parentElement
     const quantite = Number(target.querySelector('input[type="number"]').value)
     
     
 
-    // recuperer le tableau article
+    // Recuperer le tableau article
     const panier = localStorage.getItem('article');
     let articles = [];
      
-    // si le tableau existe deja on parse
+    // Si le tableau existe deja on parse
     if (panier) {
         articles = JSON.parse(panier);        
     }
 
-
-    
 
     // Si il existe, on recupere l'element dans le tableau 
     const existe = articles.find(item => item._id === id);
@@ -84,4 +75,8 @@ document.querySelector('.addToCart').addEventListener('click', (event) => {
 
 
     localStorage.setItem('article', JSON.stringify(articles));
-});
+};
+
+
+const addToCart = document.querySelector('.addToCart');
+addToCart.addEventListener('click', (event) => onClick(event));
