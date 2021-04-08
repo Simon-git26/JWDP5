@@ -12,7 +12,7 @@ if (!products || products.length === 0) {
     window.location.href="index.html";
 }
 
-
+// -----------------------------------------------metre dans une fonction jsuqua ligne 43
 // Afficher les données sur la page Web Si les conditions du if sont remplies
 const container = document.querySelector('tbody');
 let template = document.querySelector('#productrow');
