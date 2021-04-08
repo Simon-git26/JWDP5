@@ -1,15 +1,9 @@
 
-
 // Recuperer les données sur le LocalStorage
-
 let productsJson = localStorage.getItem('article');
 let products = productsJson && JSON.parse(productsJson);
 
-
 console.log(products);
-
-
-
 
 
 // Continuez le code si le tableaux Products existe sinon alert
@@ -50,17 +44,9 @@ localStorage.setItem("prixTotal", JSON.stringify(prixTotal));
 
 
 
-
-
-
 //------------------------------Données du Formulaire de commande--------------------------
 
-//Selection du bouton "COMMANDER"
-const btnEnvoyerFormulaire = document.querySelector("#btnenvoyer");
-
-
-//addEventListener du bouton "COMMANDER"
-btnEnvoyerFormulaire.addEventListener("click", async (e) => {
+function onClickButton(e) {
 
     e.preventDefault();
 
@@ -86,7 +72,7 @@ btnEnvoyerFormulaire.addEventListener("click", async (e) => {
 
     
 
-    // Methode Post pour generer une code de commande
+    // Methode Post pour generer un code de commande
     const rawResponse = await fetch("http://localhost:3000/api/teddies/order", {
         method: 'POST',
         headers: {
@@ -104,11 +90,14 @@ btnEnvoyerFormulaire.addEventListener("click", async (e) => {
 
     // Redirection vers la page Confirmation de Commande
     window.location.href="confirme.html";
-})
+};
 
 
+//Selection du bouton "COMMANDER"
+const btnEnvoyerFormulaire = document.querySelector("#btnenvoyer");
 
-
+//addEventListener du bouton "COMMANDER"
+btnEnvoyerFormulaire.addEventListener("click", async (event) => onClickButton(event)); 
 
 
 

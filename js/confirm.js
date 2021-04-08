@@ -1,13 +1,13 @@
 
 
 
-//Recuperer la valeur de prixTotal dans le localStorage et la Paser
+//Recuperer la valeur de prixTotal dans le localStorage et la Parser
 prixTotalJSON = localStorage.getItem("prixTotal");
 let prixTotal = prixTotalJSON && JSON.parse(prixTotalJSON);
 
 
 
-//Selectionné la div coresspondante 
+//Selectionné la div corespondante 
 let prixLocalDiv = document.querySelector(".prixlocal");
  
 // Afficher la valeur de prixTotal du localStorage
@@ -20,7 +20,6 @@ let orderId = document.querySelector(".orderid");
 
 // Afficher l'OrderId dans la confirmation
 orderId.textContent = localStorage.getItem("orderId");
-
 
 
 
