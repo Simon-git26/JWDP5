@@ -21,6 +21,8 @@ function orderIdAndReturn() {
     // Afficher l'OrderId dans la confirmation
     orderId.textContent = localStorage.getItem("orderId");
 
+    //Supprimer le Panier
+    localStorage.removeItem("article");
 
 
     // Selection du bouton retour accueil

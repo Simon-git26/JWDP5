@@ -46,6 +46,16 @@ function onPanier() {
 onPanier();
 
 
+//Bouton Vider le Panier
+let btnSupp = document.querySelector('#btnsupp');
+
+btnSupp.addEventListener("click", event => {
+    localStorage.removeItem("article");
+    window.location.href="index.html";
+})
+
+
+
 //------------------------------Données du Formulaire de commande--------------------------
 async function onClickButton(e) {
 
