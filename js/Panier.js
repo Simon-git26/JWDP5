@@ -12,41 +12,42 @@ if (!products || products.length === 0) {
     window.location.href="index.html";
 }
 
-// -----------------------------------------------metre dans une fonction jsuqua ligne 43
-// Afficher les données sur la page Web Si les conditions du if sont remplies
-const container = document.querySelector('tbody');
-let template = document.querySelector('#productrow');
-let prixTotal = 0;
+function onPanier() {
+    // Afficher les données sur la page Web Si les conditions du if sont remplies
+    const container = document.querySelector('tbody');
+    let template = document.querySelector('#productrow');
+    let prixTotal = 0;
 
 
-for (const result of products) {
-    
-    let clone = document.importNode(template.content, true);
-    let td = clone.querySelectorAll("td");
+    for (const result of products) {
+        
+        let clone = document.importNode(template.content, true);
+        let td = clone.querySelectorAll("td");
 
-    // Prnedre le prix total d'un article et additioner le prix total de tous les articles present 
-    prixTotal = result.price * result.quantite / 100 + prixTotal;
+        // Prendre le prix total d'un article et additioner le prix total de tous les articles present 
+        prixTotal = result.price * result.quantite / 100 + prixTotal;
 
-    td[0].textContent = result.name;
-    td[1].textContent = result.quantite;
-    td[2].textContent = `${result.price / 100} €`;
-    td[3].textContent = `${result.price * result.quantite / 100} €`;
+        td[0].textContent = result.name;
+        td[1].textContent = result.quantite;
+        td[2].textContent = `${result.price / 100} €`;
+        td[3].textContent = `${result.price * result.quantite / 100} €`;
 
-    container.appendChild(clone);
+        container.appendChild(clone);
+    }
+
+    let prixTotalDiv = document.querySelector(".prixtotal");
+    prixTotalDiv.textContent = `${prixTotal} €`;
+
+
+    //Placement de ma variable prixTotal dans le localStorage
+    localStorage.setItem("prixTotal", JSON.stringify(prixTotal));
 }
 
-let prixTotalDiv = document.querySelector(".prixtotal");
-prixTotalDiv.textContent = `${prixTotal} €`;
-
-
-//Placement de ma variable prixTotal dans le localStorage
-localStorage.setItem("prixTotal", JSON.stringify(prixTotal));
-
+onPanier();
 
 
 //------------------------------Données du Formulaire de commande--------------------------
-
-function onClickButton(e) {
+async function onClickButton(e) {
 
     e.preventDefault();
 
@@ -71,7 +72,6 @@ function onClickButton(e) {
     console.log(valeurEnvoyer);
 
     
-
     // Methode Post pour generer un code de commande
     const rawResponse = await fetch("http://localhost:3000/api/teddies/order", {
         method: 'POST',
@@ -97,8 +97,4 @@ function onClickButton(e) {
 const btnEnvoyerFormulaire = document.querySelector("#btnenvoyer");
 
 //addEventListener du bouton "COMMANDER"
-btnEnvoyerFormulaire.addEventListener("click", async (event) => onClickButton(event)); 
-
-
-
-
+btnEnvoyerFormulaire.addEventListener("click", (event) => onClickButton(event)); 

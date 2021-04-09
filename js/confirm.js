@@ -1,33 +1,37 @@
 
+function localVariable() {
+    //Recuperer la valeur de prixTotal dans le localStorage et la Parser
+    prixTotalJSON = localStorage.getItem("prixTotal");
+    let prixTotal = prixTotalJSON && JSON.parse(prixTotalJSON);
 
-
-//Recuperer la valeur de prixTotal dans le localStorage et la Parser
-prixTotalJSON = localStorage.getItem("prixTotal");
-let prixTotal = prixTotalJSON && JSON.parse(prixTotalJSON);
-
-
-
-//Selectionné la div corespondante 
-let prixLocalDiv = document.querySelector(".prixlocal");
+    //Selectionné la div corespondante 
+    let prixLocalDiv = document.querySelector(".prixlocal");
  
-// Afficher la valeur de prixTotal du localStorage
-prixLocalDiv.textContent =`${prixTotal} €`;
+    // Afficher la valeur de prixTotal du localStorage
+    prixLocalDiv.textContent =`${prixTotal} €`;
+} 
+
+localVariable();
+
+
+function orderIdAndReturn() {
+    // Selectionnez la div qui affichera l'OrderId
+    let orderId = document.querySelector(".orderid");
+
+    // Afficher l'OrderId dans la confirmation
+    orderId.textContent = localStorage.getItem("orderId");
 
 
 
-// Selectionnez la div qui affichera l'OrderId
-let orderId = document.querySelector(".orderid");
+    // Selection du bouton retour accueil
+    const btnReturn = document.querySelector("#returnaccueil");
 
-// Afficher l'OrderId dans la confirmation
-orderId.textContent = localStorage.getItem("orderId");
+    //addEventListener du bouton "COMMANDER"
+    btnReturn.addEventListener("click", (e) => {
+        // Redirection vers la page Confirmation de Commande
+        window.location.href="index.html";
+    })
+}
 
+orderIdAndReturn();
 
-
-// Selection du bouton retour accueil
-const btnReturn = document.querySelector("#returnaccueil");
-
-//addEventListener du bouton "COMMANDER"
-btnReturn.addEventListener("click", (e) => {
-    // Redirection vers la page Confirmation de Commande
-    window.location.href="index.html";
-})
