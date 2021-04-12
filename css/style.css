@@ -185,10 +185,11 @@ footer a:hover {
     margin-top: 10px;
     display: flex;
     justify-content: space-between;
-    width: 15%;
 }
 
-
+.pos-btn {
+    width: 16%;
+}
 
 
 /* Verifier la Validiter du formulaire */
@@ -237,5 +238,5 @@ border-color: #008000;
 .commande {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
